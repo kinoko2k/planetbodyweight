@@ -40,19 +40,18 @@
                         result = weight / 6;
                     } else if (target === 'mars') {
                         result = weight / 3;
-                    }
                     } else if (target === 'jupiter') {
-                        result = weight * 2.53;
-                    }
-    
-                    var resultElement = document.getElementById('result');
-                    resultElement.textContent = '計算結果: ' + result.toFixed(2) + ' kg';
-                } else {
-                    alert('有効な体重を入力してください。');
+                    result = weight * 2.53;
                 }
+
+                var resultElement = document.getElementById('result');
+                resultElement.textContent = '計算結果: ' + result.toFixed(2) + ' kg';
+            } else {
+                alert('有効な体重を入力してください。');
             }
-        </script>
-    </div>
-    
-    </body>
-    </html>
+        }
+    </script>
+</div>
+
+</body>
+</html>
