@@ -20,29 +20,39 @@
 </head>
 <body>
 
-<div id="container">
-    <label for="weight">体重（kg）:</label>
-    <input type="number" id="weight" placeholder="体重を入力">
+    <div id="container">
+        <label for="weight">体重（kg）:</label>
+        <input type="number" id="weight" placeholder="体重を入力">
+    
+        <button onclick="calculateWeight('moon')">月 🌙</button>
+        <button onclick="calculateWeight('mars')">火星 🔴</button>
+        <button onclick="calculateWeight('jupiter')">木星 🌑</button>
+        <p id="result"></p>
+    
+        <script>
+            function calculateWeight(target) {
+                var weightInput = document.getElementById('weight');
+                var weight = parseFloat(weightInput.value);
 
-    <button onclick="calculateWeight()">🌙</button>
-
-    <p id="result"></p>
-
-    <script>
-        function calculateWeight() {
-            var weightInput = document.getElementById('weight');
-            var weight = parseFloat(weightInput.value);
-
-            if (!isNaN(weight)) {
-                var result = weight / 6;
-                var resultElement = document.getElementById('result');
-                resultElement.textContent = '計算結果: ' + result.toFixed(2) + ' kg';
-            } else {
-                alert('有効な体重を入力してください。');
+                if (!isNaN(weight)) {
+                    var result;
+                    if (target === 'moon') {
+                        result = weight / 6;
+                    } else if (target === 'mars') {
+                        result = weight / 3;
+                    }
+                    } else if (target === 'jupiter') {
+                        result = weight * 2.53;
+                    }
+    
+                    var resultElement = document.getElementById('result');
+                    resultElement.textContent = '計算結果: ' + result.toFixed(2) + ' kg';
+                } else {
+                    alert('有効な体重を入力してください。');
+                }
             }
-        }
-    </script>
-</div>
-
-</body>
-</html>
+        </script>
+    </div>
+    
+    </body>
+    </html>
